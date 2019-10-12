@@ -1,0 +1,56 @@
+# https://blog.niklasottosson.com/linux/my-tmux-cheat-sheet/
+# https://www.howtoforge.com/sharing-terminal-sessions-with-tmux-and-screen
+# https://gist.github.com/henrik/1967800
+# https://danielmiessler.com/study/tmux/
+
+# https://github.com/gpakosz/.tmux
+
+
+# Rebind prefix key.
+unbind C-b
+set-option -g prefix C-a
+bind-key C-a send-prefix
+
+
+# Reload config.
+bind R source-file ~/.tmux.conf
+
+
+# Do not rename windows
+set-option -g allow-rename off
+
+
+# Mouse mode keys.
+bind m set -g mouse on
+bind M set -g mouse off
+
+
+# Splitting windows into panes with h and v 
+bind-key h split-window -v
+bind-key v split-window -h
+
+
+# Set up resize-pane keys
+bind-key + resize-pane -D 15
+bind-key / resize-pane -L 15
+bind-key - resize-pane -U 15
+bind-key * resize-pane -R 15
+
+
+#-----------------------------
+# COMMANDS
+#-----------------------------
+
+# WINDOW commands:
+# c           new window
+# ,           name window
+# w           list windows
+# f           find window
+# &           kill window
+# .           move window - prompted for a new number
+# :movew<CR>  move window to the next unused number
+
+# SESSION commands:
+# :new<CR>  new session
+# s  list sessions
+# $  name session
